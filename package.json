@@ -38,6 +38,11 @@
     "type": "git",
     "url": "https://github.com/andremichelle/opendaw"
   },
+  "allowScripts": {
+    "@parcel/watcher": true,
+    "esbuild": true,
+    "leveldown": true
+  },
   "packageManager": "npm@11.4.2",
   "workspaces": [
     "packages/**/*"
