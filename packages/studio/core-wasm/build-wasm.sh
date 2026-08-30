@@ -11,7 +11,11 @@
 #                       of distinct devices coexist in the one memory with no fixed --global-base.
 #                       Same memory import as the engine.
 set -e
-. "$HOME/.cargo/env"
+# rustup's environment file is not guaranteed to exist on CI images. The
+# Vercel entrypoint already puts Cargo on PATH, so only source it when present.
+if [ -f "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi
 ROOT="$(cd "$(dirname "$0")/../../.." && pwd)"
 cd "$ROOT/crates"
 TARGET=wasm32-unknown-unknown
